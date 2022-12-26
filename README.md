@@ -1,3 +1,6 @@
+Projet Angular sur les assignments en binôme.
+Groupe composé de CHENG Wen-Miin et SHAN MianMian, étudiantes en M2 MIAGE INTENSE. 
+
 # AssignmentApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
