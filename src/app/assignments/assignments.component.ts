@@ -11,8 +11,7 @@ export class AssignmentsComponent implements OnInit {
   titre="Liste des devoirs";
   assignmentSelectionne!:Assignment;
 
-
-  assignments:Assignment[] = [];
+  assignments:Assignment[] = []; //tableau pour la liste des assignments
 
   constructor(private assignmentsService:AssignmentsService) { }
 
@@ -23,7 +22,8 @@ export class AssignmentsComponent implements OnInit {
 
   }
 
-  assignmentClique(assignment:Assignment){
+  // Méthode appelée quand on clique sur un assignment
+  assignmentClique(assignment:Assignment){ 
     console.log("assignmentClique : " + assignment.nom);
     this.assignmentSelectionne = assignment;
   }

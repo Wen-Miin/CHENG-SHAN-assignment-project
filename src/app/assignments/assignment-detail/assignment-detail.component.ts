@@ -21,6 +21,7 @@ export class AssignmentDetailComponent implements OnInit {
     this.getAssignment();
   }
 
+  // Récupère l'assignment à partir de l'id dans l'url
   getAssignment() {
     // on récupère l'id dans l'url
     // Le + force la conversion en number
@@ -31,7 +32,7 @@ export class AssignmentDetailComponent implements OnInit {
     });
   }
 
-  onAssignmentRendu() {
+  onAssignmentRendu() { // on a cliqué sur le bouton "Rendu"
     if (!this.assignmentTransmis) return;
     this.assignmentTransmis.rendu = true;
     this.assignmentsService
@@ -44,7 +45,7 @@ export class AssignmentDetailComponent implements OnInit {
       });
   }
 
-  onDeleteAssignment() {
+  onDeleteAssignment() { // on a cliqué sur le bouton "Supprimer"
     if (!this.assignmentTransmis) return;
     this.assignmentsService
       .deleteAssignment(this.assignmentTransmis)
