@@ -13,61 +13,77 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator'
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AssignmentsComponent } from './assignments/assignments.component';
-import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
-import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
-import { Routes }  from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
-import { AuthGuard } from './shared/auth.guard';
-import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AssignmentsComponent } from './assignments/assignments.component'
+import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component'
+import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component'
+import { Routes } from '@angular/router'
+import { RouterModule } from '@angular/router'
+import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component'
+import { AuthGuard } from './shared/auth.guard'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { LoginComponent } from './shared/auth.component'
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AssignmentsComponent
-  },
-  {
-    path: 'home',
-    component: AssignmentsComponent
-  },
-  {
-    path: 'add',
-    component: AddAssignmentComponent
-  },
-  {
-    path: 'assignment/:id',
-    component: AssignmentDetailComponent
-  },
-  {
-    path: 'assignment/:id/edit',
-    component: EditAssignmentComponent,
-    canActivate:[AuthGuard]
-  }
+    {
+        path: '',
+        component: AssignmentsComponent,
+    },
+    {
+        path: 'home',
+        component: AssignmentsComponent,
+    },
+    {
+        path: 'add',
+        component: AddAssignmentComponent,
+    },
+    {
+        path: 'assignment/:id',
+        component: AssignmentDetailComponent,
+    },
+    {
+        path: 'assignment/:id/edit',
+        component: EditAssignmentComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
 ]
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AssignmentsComponent,
-    AssignmentDetailComponent,
-    AddAssignmentComponent,
-    EditAssignmentComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule, FormsModule,
-    MatButtonModule, MatIconModule, MatDividerModule,
-    MatFormFieldModule, MatInputModule, MatDatepickerModule,
-    MatNativeDateModule, MatListModule, MatCardModule,
-    MatCheckboxModule, MatSlideToggleModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AssignmentsComponent,
+        AssignmentDetailComponent,
+        AddAssignmentComponent,
+        EditAssignmentComponent,
+        LoginComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatListModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatSlideToggleModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        MatPaginatorModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

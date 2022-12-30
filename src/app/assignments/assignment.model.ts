@@ -8,5 +8,7 @@ export class Assignment {
   dateDeRendu!: Date;
   rendu!: boolean; // true si le devoir a été rendu
   remarque!: string; // remarque facultative
+  ;
+
   // TODO : ajouter une propriété image
 }

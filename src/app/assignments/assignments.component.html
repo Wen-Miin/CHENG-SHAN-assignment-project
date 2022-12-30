@@ -33,4 +33,12 @@
     </a>
     </nav>
   </mat-list>
+  <mat-paginator [length]="total"
+              [pageSize]="limit"
+              [pageSizeOptions]="[5, 10, 20, 25, 50, 75, 100]"
+              aria-label="Select page"
+              (page)="pageChanged($event)">
+</mat-paginator>
+
 </main>
+
