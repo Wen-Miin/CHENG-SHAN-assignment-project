@@ -25,7 +25,7 @@ import { RouterModule } from '@angular/router'
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component'
 import { AuthGuard } from './shared/auth.guard'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
-import { LoginComponent } from './shared/auth.component'
+import { LoginComponent } from './login/login.component'
 
 const routes: Routes = [
     {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { AuthService } from './auth.service'
 
 @Injectable({
     providedIn: 'root',
@@ -33,5 +34,14 @@ export class HttpService {
 
     delete<T>(url: string) {
         return this.http.delete<T>(this.baseUrl + url, this.httpOptions)
+    }
+
+    setToken(token: string) {
+        this.token = token
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                Authorization: 'Bearer ' + this.token,
+            }),
+        }
     }
 }
