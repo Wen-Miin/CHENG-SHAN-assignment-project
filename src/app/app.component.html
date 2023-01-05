@@ -1,11 +1,14 @@
-<nav>
-  <button *ngIf = "isLoggedIn" (click)="logoutFunction()"> Log out </button>
-  <a routerLink="/home">
-    <h1>{{title}}</h1>
-  </a>
-  
-</nav>
+<div id="nav-bar"> 
+  <nav>
+    <a id="nav-link" routerLink="/home">
+      <h1>{{title}}</h1>
+    </a> 
+  </nav>
+  <a id="logout-cta" *ngIf = "isLoggedIn" (click)="logoutFunction()"> Log out </a>
+</div>
 <!--
   Affiche le composant qui correspond à la route
 -->
-<router-outlet></router-outlet>
+<div id="root-layout">
+  <router-outlet></router-outlet>
+</div>

@@ -29,3 +29,31 @@ section {
   justify-content: center;
   width: 120px;
 }
+
+#nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #3f51b5;
+  color: #fff;
+  margin-bottom: 2em;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+#nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+#logout-cta {
+  color: rgb(222, 115, 115);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+#root-layout {
+  padding: 0 50px;
+}

@@ -1,25 +1,17 @@
 <main>
-    <form (ngSubmit)="login()" #loginForm="ngForm">
-        <label for="username">Nom d'utilisateur :</label>
-        <input
-            type="text"
-            id="username"
-            name="username"
-            [(ngModel)]="username"
-            required
-        />
-        <br />
-        <label for="password">Mot de passe :</label>
-        <input
-            type="password"
-            id="password"
-            name="password"
-            [(ngModel)]="password"
-            required
-        />
-        <br />
-        <button type="submit" [disabled]="!loginForm.form.valid">
-            Se connecter
-        </button>
-    </form>
+    <div class="Login-form">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <label for="username">
+      Username:
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+    </label>
+    <br>
+    <label for="password">
+      Password:
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </label>
+    <br>
+    <button type="submit">Se connecter</button>
+  </form>
+</div>
 </main>
