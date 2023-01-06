@@ -1,9 +1,9 @@
 <div id="nav-bar"> 
-  <nav>
+  <div>
     <a id="nav-link" routerLink="/home">
       <h1>{{title}}</h1>
     </a> 
-  </nav>
+  </div>
   <a id="logout-cta" *ngIf = "isLoggedIn" (click)="logoutFunction()"> Log out </a>
 </div>
 <!--

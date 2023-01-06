@@ -1,44 +1,37 @@
-<h2>{{titre}}</h2>
+<h2>{{ titre }}</h2>
 
-<main >
-  <a routerLink="/add">
-    <button mat-flat-button color="accent"
-    >
-          Ajouter Assignment
-    </button>
-</a>
-  <mat-list *ngFor="let a of assignments">
-    <nav>
-    <a routerLink="/assignment/{{a.id}}">
-      <mat-list-item>
-        <h3 mat-line>{{a.nom}}</h3>
-        <p mat-line>{{a.dateDeRendu | date}}</p>
-        <mat-icon mat-list-icon *ngIf="a.rendu">done</mat-icon>
-      </mat-list-item>
-    <h3 mat-subheader>{{a.dateDeRendu | date}}</h3>
-    <mat-list-item [ngClass]="{'rendu':a.rendu, 'nonRendu':!a.rendu}"
-                   (click)="assignmentClique(a)"
-    >
-
-      <p *ngIf="a.rendu; else nonsoumis">
-        {{a.nom}} a été rendu.
-      </p>
-      <ng-template #nonsoumis>
-        <p>
-          {{a.nom}} n'a pas été rendu à temps.
-        </p>
-      </ng-template>
-      <mat-divider></mat-divider>
-    </mat-list-item>
+<main>
+    <a routerLink="/add">
+        <button mat-flat-button color="accent">Ajouter Assignment</button>
     </a>
-    </nav>
-  </mat-list>
-  <mat-paginator [length]="total"
-              [pageSize]="limit"
-              [pageSizeOptions]="[5, 10, 20, 25, 50, 75, 100]"
-              aria-label="Select page"
-              (page)="pageChanged($event)">
-</mat-paginator>
 
+    <mat-list *ngFor="let a of assignments">
+        <mat-card id="assignment-card">
+            <a routerLink="/assignment/{{ a.id }}"> Ouvrir </a>
+            <mat-list-item>
+                <h3 mat-line>{{ a.nom }}</h3>
+                <mat-icon mat-list-icon *ngIf="a.rendu">done</mat-icon>
+            </mat-list-item>
+            <h3 mat-subheader>{{ a.dateDeRendu | date }}</h3>
+
+            <mat-list-item
+                [ngClass]="{ rendu: a.rendu, nonRendu: !a.rendu }"
+                (click)="assignmentClique(a)">
+                <p *ngIf="a.rendu; else nonsoumis">{{ a.nom }} a été rendu.</p>
+                <ng-template #nonsoumis>
+                    <p>{{ a.nom }} n'a pas été rendu à temps.</p>
+                </ng-template>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-card>
+    </mat-list>
+
+    <mat-paginator
+        [length]="total"
+        [pageSize]="limit"
+        [pageSizeOptions]="[5, 10, 20, 25, 50, 75, 100]"
+        aria-label="Select page"
+        (page)="pageChanged($event)"
+    >
+    </mat-paginator>
 </main>
-
