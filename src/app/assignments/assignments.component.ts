@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
     selector: 'app-assignments',
-    templateUrl: './assignmentss.component.html',
+    templateUrl: './assignments.component.html',
     styleUrls: ['./assignments.component.css'],
 })
 export class AssignmentsComponent implements OnInit {
