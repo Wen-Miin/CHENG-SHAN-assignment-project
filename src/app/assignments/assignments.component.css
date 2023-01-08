@@ -29,7 +29,7 @@
 }
 
 #photo {
-  background : red;
+  background : white;
   width : 100px;
   height : 100px;
   border-radius: 50%; 
@@ -44,3 +44,17 @@
   object-fit: cover;
 }
 
+#nom-de-rendu {
+  font-size: 40px;
+  font-family: 'Georgia', serif;
+}
+
+#nom-de-matiere {
+  font-size: 20px;
+  font-family: 'Georgia', serif;
+}
+
+#date-de-rendu {
+  font-size: 30px;
+  font-family: 'Georgia', serif;
+}
