@@ -22,7 +22,6 @@ dateDeRendu!:Date;
   onSubmit(){
     console.log("onSubmit : " + this.nomDevoir +
                 " date de rendu : " + this.dateDeRendu);
-
     // On ajoute un nouvel assignment
     let nouvelAssignment = new Assignment();
     nouvelAssignment.nom = this.nomDevoir;

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
   constructor(private authService:AuthService,private router: Router ) { }
 
   canActivate(
@@ -17,8 +17,9 @@ export class AuthGuard implements CanActivate {
       // return true ça veut dire "navigation autorisée"
       /*return this.authService.isAdmin()*/
 
-      if(!this.authService.getLoggedIn()) {
-        this.router.navigate(['/login']);
+      if(this.authService.getLoggedIn()){
+        this.router.navigate(['']);
+        console.log("OK")
       }
 
       return this.authService.getLoggedIn();

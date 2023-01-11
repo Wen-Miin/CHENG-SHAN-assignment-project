@@ -26,17 +26,21 @@ import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component'
 import { AuthGuard } from './shared/auth.guard'
+import { LoginGuard } from './shared/login.guard'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { LoginComponent } from './login/login.component'
+
 
 const routes: Routes = [
     {
         path: '',
         component: AssignmentsComponent,
+        canActivate: [AuthGuard],
     },
     {
         path: 'home',
         component: AssignmentsComponent,
+        canActivate: [AuthGuard],
     },
     {
         path: 'add',
@@ -54,6 +58,7 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
+        canActivate: [LoginGuard],
     },
 ]
 
