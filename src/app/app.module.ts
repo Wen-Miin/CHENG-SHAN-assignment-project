@@ -26,8 +26,7 @@ import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component'
 import { AuthGuard } from './shared/auth.guard'
-import { LoginGuard } from './shared/login.guard'
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { LoginComponent } from './login/login.component'
 
 
@@ -58,7 +57,6 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        canActivate: [LoginGuard],
     },
 ]
 
