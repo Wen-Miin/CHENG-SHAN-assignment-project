@@ -12,6 +12,8 @@ export class AddAssignmentComponent implements OnInit {
 
 // Pour le formulaire
 nomDevoir = "";
+matiereDevoir ="";
+remarqueDevoir ="";
 dateDeRendu!:Date;
   constructor(private assignmentsService:AssignmentsService,
               private router:ActivatedRoute) { }
@@ -24,10 +26,14 @@ dateDeRendu!:Date;
                 " date de rendu : " + this.dateDeRendu);
     // On ajoute un nouvel assignment
     let nouvelAssignment = new Assignment();
+    nouvelAssignment.id = Math.floor(Math.random()*100000000000000000);
     nouvelAssignment.nom = this.nomDevoir;
+    nouvelAssignment.matiere = this.matiereDevoir;
+    //nouvelAssignment.auteur = ;
     nouvelAssignment.dateDeRendu = this.dateDeRendu;
     nouvelAssignment.rendu = false;
-    nouvelAssignment.id = Math.floor(Math.random()*100000000000000000);
+    nouvelAssignment.remarque = this.remarqueDevoir;
+    
     // le tableau est chez le papa comment faire ?
     //this.assignments.push(nouvelAssignment);
 

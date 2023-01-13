@@ -27,6 +27,7 @@ export class AuthService {
             (response) => {
                 // Traiter la réponse de l'API
                 const token = _.get(response, 'token') || ''
+                const role = _.get(response, 'role') || ''
                 localStorage.setItem('token', token)
                 this.setLoggedIn(true)
                 this.http.setToken(token)

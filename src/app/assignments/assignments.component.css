@@ -38,6 +38,16 @@
   min-width: 100px;
 }
 
+#photoProf {
+  background : white;
+  width : 60px;
+  height : 60px;
+  border-radius: 50%; 
+  overflow: hidden; 
+  margin-right: 25px;
+  min-width: 60px;
+}
+
 .resize-image {
   width: 100%;
   height: 100%;
@@ -56,5 +66,10 @@
 
 #date-de-rendu {
   font-size: 30px;
+  font-family: 'Georgia', serif;
+}
+
+#note {
+  font-size: 20px;
   font-family: 'Georgia', serif;
 }

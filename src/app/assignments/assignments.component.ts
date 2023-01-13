@@ -53,6 +53,7 @@ export class AssignmentsComponent implements OnInit {
         this.assignmentSelectionne = assignment
     }
 
+    // Méthode quand on change de page 
     pageChanged(event: PageEvent) {
         const { previousPageIndex, pageIndex, pageSize: limit, length } = event
 
@@ -69,4 +70,5 @@ export class AssignmentsComponent implements OnInit {
     verifyDateTooLate(date: Date, rendu: boolean) {
         return moment(date).isBefore(moment()) && !rendu
     }
+
 }

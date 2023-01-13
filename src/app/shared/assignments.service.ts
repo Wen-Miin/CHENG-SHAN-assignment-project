@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { Assignment } from '../assignments/assignment.model';
 import { LoggingService } from './logging.service';
 import { dataPourPeuplerBD } from './data';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { HttpService } from './http.service'
 @Injectable({
     providedIn: 'root',
@@ -70,6 +69,9 @@ export class AssignmentsService {
             nouvelAssignment.nom = a.nom
             nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu)
             nouvelAssignment.rendu = a.rendu
+            //nouvelAssignment.note = a.note
+            //nouvelAssignment.remarque = a.remarque
+    
 
             this.addAssignment(nouvelAssignment).subscribe((msg) => {
                 console.log(msg)
