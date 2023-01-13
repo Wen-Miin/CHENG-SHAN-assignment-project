@@ -5,6 +5,12 @@
         <button mat-flat-button color="accent">Ajouter Assignment</button>
     </a>
 
+    <br>
+    <mat-form-field class="searchField">
+        <mat-label>Nom assignment</mat-label>
+        <input matInput type="text" (change)="search()">
+    </mat-form-field>
+ 
     <mat-list *ngFor="let a of assignments">
         <mat-card id="assignment-card">
            <mat-grid-list id="assignment-header" cols="10" rowHeight="150">

@@ -19,6 +19,8 @@ export class AssignmentsComponent implements OnInit {
 
     assignmentSelectionne!: Assignment
 
+    searchTerm: string = 'a' // pour la recherche
+    filteredAssignments: any[] | undefined; 
     assignments: Assignment[] = [] //tableau pour la liste des assignments
 
     constructor(
@@ -67,8 +69,16 @@ export class AssignmentsComponent implements OnInit {
         console.log(event)
     }
 
+    // Méthode pour vérifier si la date est passée
     verifyDateTooLate(date: Date, rendu: boolean) {
         return moment(date).isBefore(moment()) && !rendu
+    }
+
+    // Méthode pour la recherche
+    search() {
+        this.filteredAssignments = this.assignments.filter(assignment =>
+          assignment.nom.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
     }
 
 }

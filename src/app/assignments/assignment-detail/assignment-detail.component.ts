@@ -31,7 +31,7 @@ export class AssignmentDetailComponent implements OnInit {
       this.assignmentTransmis = assignment;
     });
   }
-
+  
   onAssignmentRendu() { // on a cliqué sur le bouton "Rendu"
     if (!this.assignmentTransmis) return;
     this.assignmentTransmis.rendu = true;
