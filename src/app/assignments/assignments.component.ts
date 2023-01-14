@@ -5,6 +5,8 @@ import * as _ from 'lodash'
 import { PageEvent } from '@angular/material/paginator'
 import * as moment from 'moment'
 import { ActivatedRoute, Router } from '@angular/router'
+import { empty } from 'rxjs';
+import { isNull } from 'lodash';
 
 @Component({
     selector: 'app-assignments',
@@ -84,8 +86,25 @@ export class AssignmentsComponent implements OnInit {
     // Rendre un assignment 
     rendre(id:string) {
         this.assignmentsService.rendreAssignment(id).subscribe(() => {
-            this.assignments = this.assignments.map(assignment => ({ ...assignment, rendu: assignment._id === id ? true : assignment.rendu}))
+            this.assignments = this.assignments.map(assignment => ({ ...assignment, rendu: assignment._id === id ? true : assignment.rendu
+            
+            }))
         })    
     }
+
+    rendu(id:string) {
+        this.assignmentsService.rendreAssignment(id).subscribe(() => {
+            this.assignments = this.assignments.map(assignment => {
+                if (assignment._id === id) {
+                    let a = 
+                    assignment.rendu = true
+                    assignment.remarque = "En attente de correction"
+                }
+                return assignment
+            })
+        })
+    }
+
+
 
 }

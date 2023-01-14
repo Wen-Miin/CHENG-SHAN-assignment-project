@@ -28,7 +28,7 @@
                 <mat-grid-tile colspan="2"> 
                     <div id="header-2-content"> 
                         <div> {{a.dateDeRendu | date}} </div> 
-                        <button mat-raised-button color="primary" [disabled]="a.rendu || verifyDateTooLate(a.dateDeRendu,a.rendu)" (click)="rendre(a._id)">
+                        <button mat-raised-button color="primary" [disabled]="a.rendu || verifyDateTooLate(a.dateDeRendu,a.rendu)" (click)="rendu(a._id)">
                             <ng-template [ngIf]="a.rendu">Rendu</ng-template>
                             <ng-template [ngIf]="!a.rendu && !verifyDateTooLate(a.dateDeRendu,a.rendu)">Rendre</ng-template>
                             <ng-template [ngIf]="verifyDateTooLate(a.dateDeRendu,a.rendu)">Trop tard</ng-template>
@@ -57,7 +57,7 @@
                             <mat-grid-tile colspan="1"> 
                                 <div id="header-2-content"> 
                                     <div id="note"> 
-                                        <ng-template [ngIf]="a.rendu">{{a.note + "/20"}}</ng-template>
+                                        <ng-template [ngIf]="a.rendu">{{a.note}}/20</ng-template>
                                     </div> 
                                     <ng-template [ngIf]="!a.rendu"></ng-template>
                                 </div>
