@@ -14,6 +14,7 @@ export class AddAssignmentComponent implements OnInit {
 nomDevoir = "";
 matiereDevoir ="";
 remarqueDevoir ="";
+note ="";
 dateDeRendu!:Date;
   constructor(private assignmentsService:AssignmentsService,
               private router:ActivatedRoute) { }
@@ -40,10 +41,11 @@ dateDeRendu!:Date;
     //this.nouvelAssignment.emit(nouvelAssignment);
     this.assignmentsService.addAssignment(nouvelAssignment)
     .subscribe((reponse) => {
-      console.log(reponse.message);
+      console.log("réponse du serveur : " + reponse);
+      console.log("Hello")
       // ON VA DEVOIR NAVIGUER AVEC LE ROUTER
       // VERS LE COMPOSANT QUI AFFICHE LA LISTE
-      //this.router.navigate(['/home']);
+      //this.router = this.router.navigate(['/assignments']);
     });
 
   }

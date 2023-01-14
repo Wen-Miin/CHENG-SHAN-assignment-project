@@ -26,6 +26,11 @@ export class AssignmentsService {
         return this.http.put(`/assignments/${id}/rendre`)
     }
 
+    searchAssignments(query: string): Observable<Assignment[]> {
+        //return of(this.assignments.filter(a => a.nom.includes(searchTerm)));
+        return this.http.get<Assignment[]>(`${this.uri}/search?nom=${query}`)
+    }
+
     getAssignment(id: number): Observable<Assignment | undefined> {
         /*const a:Assignment|undefined =
            this.assignments.find(a => a.id === id);
@@ -40,7 +45,10 @@ export class AssignmentsService {
         this.loggingService.log(assignment.nom, 'ajouté')
 
         //return of("Assignment ajouté");
-        return this.http.post(this.uri, assignment)
+       // return this.http.post(this.uri, assignment)
+        //return this.http.post(this.uri, assignment)
+        return this.http.post(`${this.uri}/`, assignment)
+        return this.http.post<Assignment>(this.uri, assignment)
     }
 
     deleteAssignment(assignment: Assignment): Observable<any> {

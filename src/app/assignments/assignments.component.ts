@@ -21,8 +21,7 @@ export class AssignmentsComponent implements OnInit {
 
     assignmentSelectionne!: Assignment
 
-    searchTerm: string = 'a' // pour la recherche
-    filteredAssignments: any[] | undefined; 
+    searchQuery!: string;  // pour la recherche 
     assignments: Assignment[] = [] //tableau pour la liste des assignments
 
     constructor(
@@ -78,20 +77,22 @@ export class AssignmentsComponent implements OnInit {
 
     // Méthode pour la recherche
     search() {
-        this.filteredAssignments = this.assignments.filter(assignment =>
-          assignment.nom.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
+        this.assignmentsService.searchAssignments(this.searchQuery).subscribe((assignments) => {
+            this.assignments = assignments
+        })
+        console.log("Nihao")
     }
 
     // Rendre un assignment 
-    rendre(id:string) {
+   /* rendre(id:string) {
         this.assignmentsService.rendreAssignment(id).subscribe(() => {
             this.assignments = this.assignments.map(assignment => ({ ...assignment, rendu: assignment._id === id ? true : assignment.rendu
             
             }))
         })    
-    }
+    }*/
 
+    // Rendre un assignment 
     rendu(id:string) {
         this.assignmentsService.rendreAssignment(id).subscribe(() => {
             this.assignments = this.assignments.map(assignment => {
