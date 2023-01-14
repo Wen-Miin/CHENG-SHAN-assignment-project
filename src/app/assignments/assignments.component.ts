@@ -81,4 +81,11 @@ export class AssignmentsComponent implements OnInit {
         );
     }
 
+    // Rendre un assignment 
+    rendre(id:string) {
+        this.assignmentsService.rendreAssignment(id).subscribe(() => {
+            this.assignments = this.assignments.map(assignment => ({ ...assignment, rendu: assignment._id === id ? true : assignment.rendu}))
+        })    
+    }
+
 }

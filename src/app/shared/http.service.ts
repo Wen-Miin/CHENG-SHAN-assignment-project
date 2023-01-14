@@ -27,7 +27,7 @@ export class HttpService {
         return this.http.post<T>(this.baseUrl + url, data, this.httpOptions)
     }
 
-    put<T>(url: string, data: any) {
+    put<T>(url: string, data?: any) {
         return this.http.put<T>(this.baseUrl + url, data, this.httpOptions)
     }
 

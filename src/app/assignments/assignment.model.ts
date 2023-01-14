@@ -1,5 +1,5 @@
 export class Assignment {
-  _id?:string;
+  _id!:string;
   id!:number;
   nom!: string; // nom du devoir
   auteur!: string;  // nom de l'étudiant

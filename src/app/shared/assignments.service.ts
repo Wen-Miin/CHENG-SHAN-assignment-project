@@ -22,6 +22,10 @@ export class AssignmentsService {
         )
     }
 
+    rendreAssignment(id:string){
+        return this.http.put(`/assignments/${id}/rendre`)
+    }
+
     getAssignment(id: number): Observable<Assignment | undefined> {
         /*const a:Assignment|undefined =
            this.assignments.find(a => a.id === id);
@@ -78,4 +82,6 @@ export class AssignmentsService {
             })
         })
     }
+
+    
 }
