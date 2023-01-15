@@ -1,8 +1,8 @@
-import { Injectable, ɵɵNgOnChangesFeature } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Assignment } from '../assignments/assignment.model';
-import { LoggingService } from './logging.service';
-import { dataPourPeuplerBD } from './data';
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Assignment } from '../assignments/assignment.model'
+import { LoggingService } from './logging.service'
+import { dataPourPeuplerBD } from './data'
 import { HttpService } from './http.service'
 @Injectable({
     providedIn: 'root',
@@ -22,13 +22,13 @@ export class AssignmentsService {
         )
     }
 
-    rendreAssignment(id:string){
+    rendreAssignment(id: string) {
         return this.http.put(`/assignments/${id}/rendre`)
     }
 
-    searchAssignments(query: string): Observable<Assignment[]> {
+    searchAssignments(nom: string): Observable<Assignment[]> {
         //return of(this.assignments.filter(a => a.nom.includes(searchTerm)));
-        return this.http.get<Assignment[]>(`${this.uri}/search?nom=${query}`)
+        return this.http.get<Assignment[]>(`${this.uri}?nom=${nom}`)
     }
 
     getAssignment(id: number): Observable<Assignment | undefined> {
@@ -45,7 +45,7 @@ export class AssignmentsService {
         this.loggingService.log(assignment.nom, 'ajouté')
 
         //return of("Assignment ajouté");
-       // return this.http.post(this.uri, assignment)
+        // return this.http.post(this.uri, assignment)
         //return this.http.post(this.uri, assignment)
         return this.http.post(`${this.uri}/`, assignment)
         return this.http.post<Assignment>(this.uri, assignment)
@@ -83,13 +83,10 @@ export class AssignmentsService {
             nouvelAssignment.rendu = a.rendu
             //nouvelAssignment.note = a.note
             //nouvelAssignment.remarque = a.remarque
-    
 
             this.addAssignment(nouvelAssignment).subscribe((msg) => {
                 console.log(msg)
             })
         })
     }
-
-    
 }
